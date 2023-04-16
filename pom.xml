@@ -20,6 +20,7 @@
 		<module>kafka/kafka-model</module>
 		<module>kafka/kafka-admin</module>
 		<module>kafka/kafka-producer</module>
+		<module>common-config</module>
 	</modules>
 	<packaging>pom</packaging>
 
@@ -33,6 +34,8 @@
 		<httpclient.version>4.5.14</httpclient.version>
 		<json.version>20230227</json.version>
 		<apache-avro.version>1.11.0</apache-avro.version>
+		<spring-kafka.version>3.0.5</spring-kafka.version>
+		<spring-retry.version>2.0.1</spring-retry.version>
 	</properties>
 
 	<dependencyManagement>
@@ -40,6 +43,11 @@
 			<dependency>
 				<groupId>com.microservices.demo</groupId>
 				<artifactId>app-config-data</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microservices.demo</groupId>
+				<artifactId>common-config</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -52,6 +60,21 @@
 				<artifactId>spring-boot-starter-test</artifactId>
 				<version>${spring-boot.version}</version>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.kafka</groupId>
+				<artifactId>spring-kafka</artifactId>
+				<version>${spring-kafka.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.retry</groupId>
+				<artifactId>spring-retry</artifactId>
+				<version>${spring-retry.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-webflux</artifactId>
+				<version>${spring-boot.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.twitter4j</groupId>

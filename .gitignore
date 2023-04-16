@@ -1,0 +1,6 @@
+/twitter-to-kafka-service/twitter-to-kafka-service/logs/
+/twitter-to-kafka-service/target/
+/kafka/kafka-model/target/
+/kafka/kafka-producer/target/
+/kafka/kafka-admin/target/
+/app-config-data/target/
