@@ -47,9 +47,8 @@ public class KafkaAdminClient {
     }
 
     public void createTopics() {
-        CreateTopicsResult createTopicsResult;
         try {
-            createTopicsResult = retryTemplate.execute(this::doCreateTopics);
+            retryTemplate.execute(this::doCreateTopics);
         } catch (final Throwable e) {
             throw new KafkaClientException("Reached max number of retries for creating kafka topic(s)!.", e);
         }
@@ -82,7 +81,7 @@ public class KafkaAdminClient {
 
     //Wait until topics created or max retry attempts reached.
     //Custom retry logic cause the createTopics is an asynchronous operation.
-    public void checkTopicsCreated() {
+    private void checkTopicsCreated() {
         Collection<TopicListing> topics = getTopics();
         int retryCount = 1;
         final Integer maxRetry = retryConfigData.getMaxAttempts();

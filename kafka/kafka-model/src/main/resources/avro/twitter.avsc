@@ -12,7 +12,7 @@
       "type": "long"
     },
     {
-      "name": "test",
+      "name": "text",
       "type": ["null", "string"]
     },
     {
